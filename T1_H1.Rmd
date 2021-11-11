@@ -1,0 +1,48 @@
+---
+title: "T1_H1"
+author: "José Carlos Del Valle"
+date: "11/11/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introducción
+
+ZONA H1, Hybrid Zone del transecto 1.
+
+
+En este script voy a analizar cómo ven las flores de *Erysimum merxmuelleri* y *E. lagascae* los principales grupos de polinizadores de la zona: dípteros, coleópteros, lepidópteros e himenópteros.
+Este script será un poco más largo porque es la primera zona con la que trabajo y he hecho varios test que no tengo que repetir en los siguientes scripts.  
+Cada zona la anlizaré en scripts separados porque si no va a ser demasiado largo y un poco caótico
+
+
+
+## Importando y limpiando el dataset
+Los datos de reflectancia de la zona T1-H1 están en la carpeta "T1_Hibrida_101-178". En esa carpeta encontraremos dos mediciones: una hecha para la parte distal y otra para la parte apical. Nosotros utilizaremos el promedio de ambas mediciones, obteniendo tan solo una medición por flor.
+
+Lo primero que haremos será cargar la librería *pavo*. Luego, cargaremos los datos (seleccionar el directorio apropiado) y crearemos el objeto **plotH1**.
+
+```{r, message = FALSE, warning = FALSE}
+library(pavo)
+H1 <- "/Users/delValle/Dropbox/UGR/T1_Hibrida_101-178" 
+plotH1<-getspec(H1)
+```
+
+Ahora hay que pulir un poco los espectros en bruto que se obtienen del espectrofotómetro. Para ello utilizaremos las funciones "procspec" contenidas en el paquete *pavo*.
+
+Lo primero que voy a hacer es eliminar posibles valores negativos de los espectros añadiendo el valor absoluto del valor negativo más alto a todo el espectro. A continuación, suavizo un poco los espectros.
+
+
+```{r, message = TRUE, warning = FALSE}
+plotH1.fix <- procspec(plotH1, fixneg = "addmin") 
+plotH1.sm <- procspec(plotH1.fix, opt = "smooth", span = 0.2)
+is.rspec(plotH1.sm)
+```
+
+
+
+
+
