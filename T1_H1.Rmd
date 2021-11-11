@@ -1,26 +1,26 @@
 ---
-title: "T1_H1"
+title: "H1-T1: zona H1 (hybrid) del transecto 1."
 author: "José Carlos Del Valle"
+lang : es
 date: "11/11/2021"
-output: pdf_document
+output: 
+  bookdown::pdf_document2:
+    number_sections: false
+    fig_caption: yes
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Introducción
-
-ZONA H1, Hybrid Zone del transecto 1.
-
+## 1. Introducción
 
 En este script voy a analizar cómo ven las flores de *Erysimum merxmuelleri* y *E. lagascae* los principales grupos de polinizadores de la zona: dípteros, coleópteros, lepidópteros e himenópteros.
-Este script será un poco más largo porque es la primera zona con la que trabajo y he hecho varios test que no tengo que repetir en los siguientes scripts.  
-Cada zona la anlizaré en scripts separados porque si no va a ser demasiado largo y un poco caótico
+Este script será un poco más largo porque es la primera zona con la que trabajo y he hecho varios test que no tengo que repetir en los siguientes scripts. Cada zona la anlizaré en scripts separados porque si no va a ser demasiado largo y un poco caótico
 
 
 
-## Importando y limpiando el dataset
+## 2. Importando y limpiando el dataset
 Los datos de reflectancia de la zona T1-H1 están en la carpeta "T1_Hibrida_101-178". En esa carpeta encontraremos dos mediciones: una hecha para la parte distal y otra para la parte apical. Nosotros utilizaremos el promedio de ambas mediciones, obteniendo tan solo una medición por flor.
 
 Lo primero que haremos será cargar la librería *pavo*. Luego, cargaremos los datos (seleccionar el directorio apropiado) y crearemos el objeto **plotH1**.
@@ -35,12 +35,151 @@ Ahora hay que pulir un poco los espectros en bruto que se obtienen del espectrof
 
 Lo primero que voy a hacer es eliminar posibles valores negativos de los espectros añadiendo el valor absoluto del valor negativo más alto a todo el espectro. A continuación, suavizo un poco los espectros.
 
-
 ```{r, message = TRUE, warning = FALSE}
 plotH1.fix <- procspec(plotH1, fixneg = "addmin") 
 plotH1.sm <- procspec(plotH1.fix, opt = "smooth", span = 0.2)
 is.rspec(plotH1.sm)
 ```
+
+Ahora voy a plotear los dos espectros del individuo 101 (101a = parte apical del pétalo, 101b = parte basal del pétalo). 
+
+```{r, echo = FALSE, out.width="50%", fig.align='center', fig.cap="Parte apical de la flor del individuo 101."}
+plot(plotH1.sm$`T1_101a_Reflection__1__21-54-09-317`, type = "l")
+```
+
+```{r, echo = FALSE, out.width="50%", fig.align='center', fig.cap="Parte basal de la flor del individuo 101."}
+plot(plotH1.sm$`T1_101b_Reflection__0__21-52-57-330`, type = "l")
+```
+
+Después de ver los espectros, no tengo demasiado claro si es buena idea mezclar las mediciones. Difieren demasiado entre ellos. De todas formas, voy a continuar así y calcularé el promedio de ambos espectros por individuo.
+
+
+## 3. Obteniendo los promedios de las dos mediciones hechas en las partes basal y apical de la flor
+
+Para promediar los espectros de las partes basal y apical de una flor, hay que calcular el promedio de dos columnas contiguas en *plotH1.sm* de cada muestra. Voy a hacer primero un pequeño test de forma manual utilizando varias columnas continuas, lo que me servirá como referencia más adelante para verificar que lo que estoy haciendo está bien
+
+```{r, echo = TRUE}
+plotH1.sm_manual <- plotH1.sm$wl
+plotH1.sm_manual <- as.data.frame(plotH1.sm_manual)
+plotH1.sm_manual$T1_101 <- apply(plotH1.sm[ ,c(2,3)], 1, mean, na.rm = TRUE)
+plotH1.sm_manual$T1_102 <- apply(plotH1.sm[ ,c(4,5)], 1, mean, na.rm = TRUE)  
+plotH1.sm_manual$T1_103 <- apply(plotH1.sm[ ,c(6,7)], 1, mean, na.rm = TRUE)  
+plotH1.sm_manual$T1_104 <- apply(plotH1.sm[ ,c(8,9)], 1, mean, na.rm = TRUE)  
+```
+
+Lo primero que he hecho ha sido crear una primera columna con las longitudes de onda. He transformado el objeto *plotH1.sm_manual* a data frame y a continuación he ido añadiendo columnas (una por individuo) con los promedios de ambas mediciones. Con una simple comprobación, vemos que el objeto *plotH1.sm_manual* es reconocido correctamente como un objeto rspec (formato de *pavo*):
+
+```{r, message = TRUE, warning = FALSE}
+plotH1.sm_manual <- as.rspec(plotH1.sm_manual)
+is.rspec(plotH1.sm_manual)
+```
+
+Estos serían los cinco primeros valores que he obtenido para las muestras 101 a 104:
+```{r, message = TRUE, warning = FALSE}
+head(plotH1.sm_manual, n=5)
+```
+
+Como es inviable hacerlo manualmente, voy a crear un loop para que automáticamente me calcule el promedio cada dos columnas. Primero voy a correr un primer test con los promedios desde la columna 2 a la 11: 
+
+```{r, message = TRUE, warning = FALSE}
+test0 <- plotH1.sm$wl
+test0 <- as.data.frame(test0)
+colnames(test0) <- c("wl")
+head(test0)
+```
+
+```{r, message = TRUE, warning = FALSE}
+for(i in 2:11) {       
+  test0[ , i] <- apply(plotH1.sm[ , c(i, i+1)], 1, mean, na.rm=TRUE)
+}
+```
+
+Al comparar los resultados con los obtenidos de forma manual (ver objeto *plotH1.sm_manual*), veo que me ha sumado las columnas contiguas (ej: columna 2 + columna 3, columna 3 + columna 4, columna 4  + columna 5):
+
+```{r, message = TRUE, warning = FALSE}
+test0[1:5, 1:8]
+plotH1.sm_manual[1:5, 1:5]
+```
+
+Al sumar las columnas contiguas, únicamente las columnas pares (V2, V4, V6, etc.) son las correctas. Es decir, V2 equivale a T1_101, V4 equivale a T1_102, V6 equivale a T1_103 y V8 equivale a T1_104. 
+
+Voy a probar a eliminar las columnas impares y a retener las pares, pero antes tengo que quitar la primera columna, que es la que tiene las longitudes de onda.
+
+```{r, message = TRUE, warning = FALSE}
+test1 <- test0[ , -c(1)]
+col_odd <- seq_len(ncol(test1)) %% 2  
+test1 <- test1[ , col_odd == 1]
+rm(col_odd)
+```
+
+Ahora que solo tengo las columnas pares (las que tienen los promedios que estoy buscando), vuelvo a añadir la columna con las longitudes de onda (columna *wl*) que había eliminado. Ahora sí que me coinciden los resultados:
+```{r, message = FALSE, warning = FALSE, echo = TRUE}
+test1$wl <- test0$wl
+library(dplyr)
+test1 <- test1 %>%
+  select(wl, everything())
+```
+
+Ahora sí que me coinciden los resultados:
+```{r, message = TRUE, warning = FALSE}
+plotH1.sm_manual[1:5, 1:5]
+test1[1:5, 1:5]
+rm(test0)
+```
+
+Ahora solo me faltaría cambiar el nombre de las variables y ya estaría listo:
+```{r, message = TRUE, warning = FALSE}
+x0 <- c("wl")
+x1 <- 101:125
+x2 <- 127:150
+x3 <- 152:158
+x4 <- 160:178
+```
+
+Como faltan algunas muestras (ej: 126), las secuencias no van del 101 al 178 directamente, sino que he creado objetos *x* con una numeración acorde al nombre de las muestras. Solo tengo que unificar estos objetos y añadirle al nombre de cada individuo (i.e. el nombre de cada columna) el prefijo "T1_" correspondiente al transecto
+```{r, message = TRUE, warning = FALSE}
+x_sum <- c(x1, x2, x3, x4)
+x_sum <- paste("T1", x_sum, sep="_") 
+head(x_sum)
+```
+
+Todo esto que he hecho serviría para tener los nombres de todas las muestras, pero para este pequeño test solo necesito los nombres desde el T_101 hasta el T1_105:
+```{r, message = TRUE, warning = FALSE}
+x_sum_test1 <- c(x_sum[1:5])
+names_test1 <- c(x0,x_sum_test1)
+names_test1
+```
+
+Ya tengo listo el vector con los nombres de las columnas del dataframe *test1*
+```{r, message = TRUE, warning = FALSE}
+colnames(test1) <- names_test1
+head(test1, n=5)
+```
+
+Así es como consigo obtener los valores promedios de cada muestra (T1_101, T1_102, etc.) con su correspondiente nomenclatura; con esto podría trabajar ya y extrapolarlo al conjunto completo de datos.
+
+Elimino todo aquello que ya no necesito antes de crear un data frame con todos los datos del transecto 1 de la zona híbrida H1.
+```{r, message = TRUE, warning = FALSE}
+rm(x1)
+rm(x2)
+rm(x3)
+rm(x4)
+rm(x0)
+rm(x_sum)
+rm(x_sum_test1)
+rm(test1)
+rm(names_test1)
+rm(i)
+```
+
+
+
+
+
+
+
+
+
 
 
 
