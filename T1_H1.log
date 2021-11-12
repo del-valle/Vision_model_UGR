@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2021.11.11)  11 NOV 2021 16:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2021.11.11)  12 NOV 2021 11:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -533,39 +533,57 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [1
 
 {/Users/delValle/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<T1_H1_files/figure-latex/unnamed-chunk-3-1.pdf, id=34, 469.755pt x 325.215pt>
+<T1_H1_files/figure-latex/unnamed-chunk-3-1.pdf, id=67, 469.755pt x 325.215pt>
 File: T1_H1_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use T1_H1_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-3-1.pdf  used on input line 200.
 (pdftex.def)             Requested size: 234.87692pt x 162.6071pt.
-<T1_H1_files/figure-latex/unnamed-chunk-4-1.pdf, id=35, 469.755pt x 325.215pt>
+<T1_H1_files/figure-latex/unnamed-chunk-4-1.pdf, id=68, 469.755pt x 325.215pt>
 File: T1_H1_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use T1_H1_files/figure-latex/unnamed-chunk-4-1.pdf>
 Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-4-1.pdf  used on input line 209.
 (pdftex.def)             Requested size: 234.87692pt x 162.6071pt.
-[2 <./T1_H1_files/figure-latex/unnamed-chunk-3-1.pdf> <./T1_H1_files/figure-latex/unnamed-chunk-4-1.pdf>] [3]
+[2 <./T1_H1_files/figure-latex/unnamed-chunk-3-1.pdf>] [3 <./T1_H1_files/figure-latex/unnamed-chunk-4-1.pdf>]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 296.
-[4] [5] [6] (./T1_H1.aux
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 299.
+[4] [5] [6] [7] [8] [9]
+<T1_H1_files/figure-latex/unnamed-chunk-24-1.pdf, id=119, 469.755pt x 325.215pt>
+File: T1_H1_files/figure-latex/unnamed-chunk-24-1.pdf Graphic file (type pdf)
+<use T1_H1_files/figure-latex/unnamed-chunk-24-1.pdf>
+Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-24-1.pdf  used on input line 740.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[10] [11 <./T1_H1_files/figure-latex/unnamed-chunk-24-1.pdf>]
+<T1_H1_files/figure-latex/unnamed-chunk-27-1.pdf, id=139, 469.755pt x 325.215pt>
+File: T1_H1_files/figure-latex/unnamed-chunk-27-1.pdf Graphic file (type pdf)
+<use T1_H1_files/figure-latex/unnamed-chunk-27-1.pdf>
+Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-27-1.pdf  used on input line 799.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[12 <./T1_H1_files/figure-latex/unnamed-chunk-27-1.pdf>]
+<T1_H1_files/figure-latex/unnamed-chunk-29-1.pdf, id=152, 469.755pt x 325.215pt>
+File: T1_H1_files/figure-latex/unnamed-chunk-29-1.pdf Graphic file (type pdf)
+<use T1_H1_files/figure-latex/unnamed-chunk-29-1.pdf>
+Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-29-1.pdf  used on input line 831.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[13 <./T1_H1_files/figure-latex/unnamed-chunk-29-1.pdf>] (./T1_H1.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
 Package rerunfilecheck Info: File `T1_H1.out' has not changed.
-(rerunfilecheck)             Checksum: 7AB103ADC961C3249327E032C56B4704;939.
+(rerunfilecheck)             Checksum: C83FCBE4B95A4BDC4211A779AE14DF59;4341.
  ) 
 Here is how much of TeX's memory you used:
- 12503 strings out of 480539
- 184757 string characters out of 5901723
- 514848 words of memory out of 5000000
- 29916 multiletter control sequences out of 15000+600000
- 453615 words of font info for 68 fonts, out of 8000000 for 9000
+ 12569 strings out of 480539
+ 187553 string characters out of 5901723
+ 519999 words of memory out of 5000000
+ 29956 multiletter control sequences out of 15000+600000
+ 453934 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,6n,66p,616b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/Users/delValle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on T1_H1.pdf (6 pages, 223894 bytes).
+ 60i,6n,66p,1561b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/Users/delValle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
+Output written on T1_H1.pdf (13 pages, 426003 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 82 compressed objects within 1 object stream
- 16 named destinations out of 1000 (max. 500000)
- 35 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 214 PDF objects out of 1000 (max. 8388607)
+ 168 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 98 words of extra memory for PDF output out of 10000 (max. 10000000)
 

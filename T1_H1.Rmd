@@ -13,14 +13,14 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## 1. Introducción
+## 1. Introducción.
 
 En este script voy a analizar cómo ven las flores de *Erysimum merxmuelleri* y *E. lagascae* los principales grupos de polinizadores de la zona: dípteros, coleópteros, lepidópteros e himenópteros.
 Este script será un poco más largo porque es la primera zona con la que trabajo y he hecho varios test que no tengo que repetir en los siguientes scripts. Cada zona la anlizaré en scripts separados porque si no va a ser demasiado largo y un poco caótico
 
 
 
-## 2. Importando y limpiando el dataset
+## 2. Importando y limpiando el dataset.
 Los datos de reflectancia de la zona T1-H1 están en la carpeta "T1_Hibrida_101-178". En esa carpeta encontraremos dos mediciones: una hecha para la parte distal y otra para la parte apical. Nosotros utilizaremos el promedio de ambas mediciones, obteniendo tan solo una medición por flor.
 
 Lo primero que haremos será cargar la librería *pavo*. Luego, cargaremos los datos (seleccionar el directorio apropiado) y crearemos el objeto **plotH1**.
@@ -54,7 +54,9 @@ plot(plotH1.sm$`T1_101b_Reflection__0__21-52-57-330`, type = "l")
 Después de ver los espectros, no tengo demasiado claro si es buena idea mezclar las mediciones. Difieren demasiado entre ellos. De todas formas, voy a continuar así y calcularé el promedio de ambos espectros por individuo.
 
 
-## 3. Obteniendo los promedios de las dos mediciones hechas en las partes basal y apical de la flor
+## 3. Obteniendo los promedios de las dos mediciones hechas en las partes basal y apical de la flor.
+
+## 3.1. Primer test con un dataset reducido.  
 
 Para promediar los espectros de las partes basal y apical de una flor, hay que calcular el promedio de dos columnas contiguas en *plotH1.sm* de cada muestra. Voy a hacer primero un pequeño test de forma manual utilizando varias columnas continuas, lo que me servirá como referencia más adelante para verificar que lo que estoy haciendo está bien
 
@@ -159,6 +161,7 @@ head(test1, n=5)
 Así es como consigo obtener los valores promedios de cada muestra (T1_101, T1_102, etc.) con su correspondiente nomenclatura; con esto podría trabajar ya y extrapolarlo al conjunto completo de datos.
 
 Elimino todo aquello que ya no necesito antes de crear un data frame con todos los datos del transecto 1 de la zona híbrida H1.
+
 ```{r, message = TRUE, warning = FALSE}
 rm(x1)
 rm(x2)
@@ -173,11 +176,157 @@ rm(i)
 ```
 
 
+## 3.2. Opción 1: para hacerlo de la forma que lo he hecho anteriormente (si no comprendes algún paso, arriba se explica paso a paso para qué se hace cada cosa).
+
+```{r, message = FALSE, warning = FALSE}
+plotH1_average <- plotH1.sm$wl
+plotH1_average <- as.data.frame(plotH1_average)
+colnames(plotH1_average) <- c("wl")
+head(plotH1_average)
+```
+
+```{r, message = FALSE, warning = FALSE}
+for(i in 2:150) {       
+  plotH1_average[ , i] <- apply(plotH1.sm[ , c(i, i+1)], 1, mean, na.rm=TRUE)
+}
+plotH1_average[1:5,1:5]
+plotH1_average[1:5,145:150]
+
+plotH1_average2 <- plotH1_average[ , -c(1)]
+col_odd <- seq_len(ncol(plotH1_average2)) %% 2  
+plotH1_average2 <- plotH1_average2[ , col_odd == 1]
+rm(col_odd)
+
+plotH1_average2$wl <- plotH1_average$wl
+library(dplyr)
+plotH1_average2 <- plotH1_average2 %>%
+  select(wl, everything())
+plotH1_average2[1:4,1:5]
+
+x0 <- c("wl")
+x1 <- 101:125
+x2 <- 127:150
+x3 <- 152:158
+x4 <- 160:178
+x_sum <- c(x1, x2, x3, x4)
+x_sum <- paste("T1", x_sum, sep="_") 
+head(x_sum)
+names_H1 <- c(x0,x_sum)
+names_H1
+
+colnames(plotH1_average2) <- names_H1
+dim(plotH1_average2)
+```
+
+Las dimensiones del objeto *plotH1_average2* son correctas. Tiene 401 filas (el encabezado + 400nm) y 76 columnas (wl + 75 plantas).
+
+```{r, message = FALSE, warning = FALSE}
+head(plotH1_average2, n=5)
+plotH1_average2 <- as.rspec(plotH1_average2)
+is.rspec(plotH1_average2)
+```
+
+Eliminamos todo aquello que ya no necesito. Importante: *names_H1* me hará falta mas adelante, por eso no lo elimino todavía.
+```{r, message = FALSE, warning = FALSE}
+rm(x0)
+rm(x1)
+rm(x2)
+rm(x3)
+rm(x4)
+rm(x_sum)
+rm(i)
+rm(plotH1_average)
+```
 
 
+## 3.2. Opción 2: para hacerlo más fino, tendría que crear un loop como el que describo abajo, pero no me termina de correr bien No lo incluyo en los chunks porque no me interesa correrlo ahora. Lo dejo como texto normal por si en un futuro soy capaz de solucionarlo.
+
+plotH1_average <- plotH1.sm$wl  
+plotH1_average <- as.data.frame(plotH1_average)  
+colnames(plotH1_average) <- c("wl")  
+head(plotH1_average)  
+  
+i_seq <- seq(from=2, to=151, by=2)  
+
+for(i in i_seq) {  
+         plotH1_average[ , i] <- apply(plotH1.sm[ , c(i, i+1)], 1, mean, na.rm=TRUE)  
+   }  
+ 
+plotH1_average  
+plotH1_average[1:5,1:5]  
+plotH1.sm_manual[1:5,1:5]  
 
 
+## 4. Cálculo de variables colorimétricas.
 
+Las variables colorimétricas que pueden incluirse en el paper, tales como hue, chroma, spectral purity, etc., se calculan con este sencillo comando:
+
+```{r, message = FALSE, warning = FALSE}
+colouremetric.variables.plotH1_average2 <- summary(plotH1_average2)
+# write.csv2(colouremetric.variables.plotH1_average2, 
+#            file="plotH1_average2_colourimetric_variables.csv", row.names = TRUE)
+```
+Se podría guardar en un csv los resultados, pero por el momento dejo las almohadillas porque no me interesa crear el archivo. Ahora voy a plotear los espectros de las 75 plantas de la zona H1. Además, la función colorea cada línea según la forma del espectro, tal y cómo se vería al ojo humano. Por último, voy a crear un objeto *rgb* con los colores de cada espectro, que utilizaré más adelante para colorear los puntos en los distintos modelos de visión.
+
+```{r, message = FALSE, warning = FALSE, fig.align='center', fig.cap="Espectros de todas las flores de la zona H1 del transecto 1."}
+plot(plotH1_average2, type = "o", col = spec2rgb(plotH1_average2))
+rgb <- spec2rgb(plotH1_average2) 
+```
+  
+  
+## 5. Modelos de visión.  
+
+## 5.1. Modelo de visión de las ABEJAS.  
+
+Para prevenir errores, voy a corregir posibles valores "cero" en nuestro dataset con la función *procspec*.
+```{r, message = FALSE, warning = FALSE}
+plotH1_average2 <- procspec(plotH1_average2, fixneg = "addmin") 
+```
+
+Para representar las 75 flores provenientes de la zona H1 del transecto 1 en el hexágono de color (himenópteros), primero tengo que crear el modelo visual con los siguientes parámetros. He utilizado el "green" estándar como background, la iluminación D65, el quantum catch = Ei, el modelo visual de *Apis mellifera* y la correción de von kries. 
+
+```{r, message = FALSE, warning = FALSE, error= TRUE}
+vis.flowers.H1.bees <- vismodel(plotH1_average2,
+                         visual = "apis", 
+                         qcatch = "Ei", 
+                         relative = FALSE,
+                         vonkries = TRUE, 
+                         achromatic = "l", 
+                         bkg = "green", 
+                         illum="D65"
+)  
+```
+
+Una vez creado el modelo visual *vis.flowers.H1.bees*, ya puedo plotear los puntos en el hexágono.
+
+```{r, message = FALSE, warning = FALSE, error= TRUE, fig.align='center', fig.cap="Hexágono de color con los datos en bruto."}
+hexagon.H1.bees <- colspace(vis.flowers.H1.bees, space = "hexagon")
+hexplot(hexagon.H1.bees, 
+        sectors="coarse", 
+        labels=TRUE, 
+        main="Hybrid Transect 1", 
+        cex.main=1.5, 
+        col="black")
+```
+
+Si quisiera guardar en un csv los valores obtenidos del hexágono, como por ejemplo la distancia al centro de cada punto, tendría que ejecutar el siguiente scrip:
+
+```{r}
+# write.csv2(hexagon.H1.bees, file="hexagon.H1.bees.csv", row.names = TRUE)
+```
+
+Ahora voy a depurar el gráfico para poder exportarlo para la publicación, incluyendo los colores de cada flor tal y como se perciben al ojo humano. El gráfico lo exportaría en pdf a 7.5 x 5.5 pulgadas.
+
+```{r, fig.align='center', fig.cap="Hexágono de color con los color loci tal y como son percibidos por el ojo humano}
+par(mar=c(1, 1, 1, 1))
+hexplot(hexagon.H1.bees, 
+        sectors="coarse", 
+        achro=TRUE, 
+        labels=FALSE, 
+        cex=1.1, 
+        labels.cex = 1.2, 
+        col=rgb)
+```
 
 
 
