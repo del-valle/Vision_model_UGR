@@ -7,6 +7,7 @@ output:
   bookdown::pdf_document2:
     number_sections: false
     fig_caption: yes
+bibliography: referencias.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -331,7 +332,7 @@ hexplot(hexagon.H1.bees,
 
 ## 5.2. Modelo de visión de las MARIPOSAS.
 
-Voy a utilizar las sensibilidades de *Papilio xunthus* como representante de los Lepidópteros. Las sensibilidades (i.e., curvas de excitación de los cuatro fotorreceptores) las obtuve del paper de Koshitaka et al. 2008. 
+Voy a utilizar las sensibilidades de *Papilio xunthus* como representante de los Lepidópteros. Las sensibilidades (i.e., curvas de excitación de los cuatro fotorreceptores) las obtuve del paper de @Koshitaka2008. 
 
 ```{r, message = FALSE, warning = FALSE, error= TRUE}
 papilio <-read.table("sensibilidad_papilio_xunthus.txt", header=T)
@@ -418,7 +419,7 @@ plot(categorical.H1.flies,
 
 ## 5.4. Modelo de visión de los ESCARABAJOS.
 
-Voy a utilizar las sensibilidades de *Pygopleurus israelitus* como representante de los Coleópteros. Las sensibilidades (i.e., curvas de excitación de los cuatro fotorreceptores) las obtuve del paper de Martinez-Harm et al 2020. 
+Voy a utilizar las sensibilidades de *Pygopleurus israelitus* como representante de los Coleópteros. Las sensibilidades (i.e., curvas de excitación de los cuatro fotorreceptores) las obtuve del paper de @Martinez-Harms2020.
 
 ```{r, message = FALSE, warning = FALSE, error= TRUE}
 p.israelitus <-read.table("sensibilidad_pygopleurus_israelitus.txt", header=T)
@@ -427,7 +428,7 @@ is.rspec(p.israelitus)
 head(p.israelitus)
 ```
 
-La dinámica a seguir es la misma que con las abejas, mariposas y moscas. Primero se crear el modelo visual con los mismos parámetros y luego se representa en el espacio categórico. He utilizado el "green" estándar como background, la iluminación D65, el modelo visual de *Pygopleurus israelitus* que he creado y la correción de von kries.  
+La dinámica a seguir es la misma que con las abejas, mariposas y moscas. Primero se crear el modelo visual con los mismos parámetros y luego se representa en el triángulo de Maxwell. He utilizado el "green" estándar como background, la iluminación D65, el modelo visual de *Pygopleurus israelitus* que he creado y la correción de von kries.  
 
 ```{r, message = FALSE, warning = FALSE, error= TRUE}
 vis.flowers.H1.beetles <- vismodel(plotH1_average2, 
@@ -437,14 +438,14 @@ vis.flowers.H1.beetles <- vismodel(plotH1_average2,
                                        bkg = "green")
 ```
 
-Una vez creado el modelo visual *vis.flowers.H1.beetles*, ya puedo plotear los puntos en el triángulo.
+Una vez creado el modelo visual *vis.flowers.H1.beetles*, ya puedo plotear los puntos en el triángulo de Maxwell.
 
 ```{r, message = FALSE, warning = FALSE, error= TRUE, fig.align='center', fig.cap="Hexágono de color con los datos en bruto."}
 triangle.H1.beetles <- colspace(vis.flowers.H1.beetles, space = "tri")
 plot(triangle.H1.beetles) 
 ```
 
-Si quisiera guardar en un csv los valores obtenidos del triángulo, como por ejemplo la distancia al centro de cada punto, tendría que ejecutar el siguiente scrip:
+Si quisiera guardar en un csv los valores obtenidos del triángulo de Maxwell, como por ejemplo la distancia al centro de cada punto, tendría que ejecutar el siguiente scrip:
 
 ```{r}
 # write.csv2(triangle.H1.beetles, file="triangle.H1.beetles.csv", row.names = TRUE)
@@ -546,6 +547,10 @@ median(achrom_contrast_table$achrom_contrast_bees)
 ```
 
 Con esto acabarían todos los análisis para la zona híbrida H1 del transecto 1. El resto de zonas también se han analizado. Encontrarás los scripts en la carpeta *scripts* del repositorio de Github.  
+
+
+## 8. Referencias
+
 
 
 
