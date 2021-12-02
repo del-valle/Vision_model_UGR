@@ -2,13 +2,13 @@ library(ggplot2)
 library(multcomp)
 
 
-setwd("~/Desktop/UGR")
+getwd()
 list.files()
 
 # he copiado en un txt todos los valores de conrtaste ACROMATICO que obtuve en los scripts
 # T1_H1-T2-M2; luego copie en un excel todas las filas seguidas de los 6 txt que me genero R
 # y el resultado es el archivo "achrom_cont_all.txt" que voy a cargar ahora
-achrom <- read.table("achrom_cont_all.txt", header=TRUE)
+achrom <- read.table("/Users/delValle/Dropbox/Vision_model_UGR/achrom_cont_all.txt", header=TRUE)
 achrom$transect <- as.factor(achrom$transect)  # factor
 achrom$zone <- as.factor(achrom$zone)  # factor
 achrom$zone2 <- as.factor(achrom$zone2)  # factor
@@ -58,7 +58,7 @@ plot_achrom2
 
 
 # ahora voy a analizar el contraste CROMATICO (distancia al centro) de cada polinizador
-chrom <- read.table("chrom_cont_all.txt", header=TRUE)
+chrom <- read.table("/Users/delValle/Dropbox/Vision_model_UGR/chrom_cont_all.txt", header=TRUE)
 chrom$transect <- as.factor(chrom$transect)  # factor
 chrom$zone <- as.factor(chrom$zone)  # factor
 chrom$zone2 <- as.factor(chrom$zone2)  # factor

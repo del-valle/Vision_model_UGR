@@ -3,7 +3,7 @@ getwd()
 list.files()
 
 # ZONA L1, purple zone
-L1 <- "/Users/delValle/Dropbox/UGR/T1_Parental_El_179-259"
+L1 <- "/Users/delValle/Dropbox/Vision_model_UGR/T1_Parental_El_179-259"
 # cambiar por otro directorio si fuera necesario
 
   

@@ -3,7 +3,7 @@ getwd()
 list.files()
 
 # ZONA M1, yellow zone
-M1 <- "/Users/delValle/Dropbox/UGR/T1_Parental_Emx_21-100" 
+M1 <- "/Users/delValle/Dropbox/Vision_model_UGR/T1_Parental_Emx_21-100" 
 # cambiar por otro directorio si fuera necesario
 
   

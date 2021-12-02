@@ -3,7 +3,7 @@ getwd()
 list.files()
 
 # ZONA H2, hybrid zone transect 2
-H2 <- "/Users/delValle/Dropbox/UGR/T2_Hibrida_321-393"
+H2 <- "/Users/delValle/Dropbox/Vision_model_UGR/T2_Hibrida_321-393"
 # cambiar por otro directorio si fuera necesario
 
   

@@ -9,7 +9,7 @@ list.files()
 # test que no tengo que repetir en los siguientes scripts == cada zona la anlizare en scripts separados
 # porque si no va a ser demasiado largo y pudiera ser un poco caotico
 
-H1 <- "/Users/delValle/Dropbox/UGR/T1_Hibrida_101-178"         
+H1 <- "/Users/delValle/Dropbox/Vision_model_UGR/T1_Hibrida_101-178"         
 # cambiar por otro directorio si fuera necesario
 
   

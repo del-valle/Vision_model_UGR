@@ -1,5 +1,5 @@
 
-setwd("~/Desktop/UGR/absorbancias")
+setwd("~/Users/delValle/Dropbox/Vision_model_UGR/absorbancias")
 list.files()
 library(ggplot2)
 library(multcomp)

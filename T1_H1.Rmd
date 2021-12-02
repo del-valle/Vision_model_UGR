@@ -486,7 +486,7 @@ head(chrom_contrast_table, n=5)
 ```
 
 
-Ahora tan solo hay que calcular las medias, medianas, máximos, mínimos y errores estándar.  
+Ahora tan solo tengo que calcular las medias, medianas, máximos, mínimos y errores estándar.  
 
 ```{r, echo=TRUE}
 mean <- apply(subset(chrom_contrast_table, select = c(2:5)), 2, mean, na.rm=TRUE)
