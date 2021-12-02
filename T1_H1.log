@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2021.11.11)  12 NOV 2021 11:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2021.11.11)  2 DEC 2021 09:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -527,63 +527,97 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \tf@toc=\write5
 \openout5 = `T1_H1.toc'.
 
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 153.
-(/Users/delValle/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [1
+[1
 
 {/Users/delValle/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<T1_H1_files/figure-latex/unnamed-chunk-3-1.pdf, id=67, 469.755pt x 325.215pt>
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 154.
+(/Users/delValle/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+<T1_H1_files/figure-latex/unnamed-chunk-3-1.pdf, id=90, 469.755pt x 325.215pt>
 File: T1_H1_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use T1_H1_files/figure-latex/unnamed-chunk-3-1.pdf>
-Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-3-1.pdf  used on input line 200.
+Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-3-1.pdf  used on input line 201.
 (pdftex.def)             Requested size: 234.87692pt x 162.6071pt.
-<T1_H1_files/figure-latex/unnamed-chunk-4-1.pdf, id=68, 469.755pt x 325.215pt>
+<T1_H1_files/figure-latex/unnamed-chunk-4-1.pdf, id=91, 469.755pt x 325.215pt>
 File: T1_H1_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use T1_H1_files/figure-latex/unnamed-chunk-4-1.pdf>
-Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-4-1.pdf  used on input line 209.
+Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-4-1.pdf  used on input line 210.
 (pdftex.def)             Requested size: 234.87692pt x 162.6071pt.
 [2 <./T1_H1_files/figure-latex/unnamed-chunk-3-1.pdf>] [3 <./T1_H1_files/figure-latex/unnamed-chunk-4-1.pdf>]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 299.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 300.
 [4] [5] [6] [7] [8] [9]
-<T1_H1_files/figure-latex/unnamed-chunk-24-1.pdf, id=119, 469.755pt x 325.215pt>
+<T1_H1_files/figure-latex/unnamed-chunk-24-1.pdf, id=143, 469.755pt x 325.215pt>
 File: T1_H1_files/figure-latex/unnamed-chunk-24-1.pdf Graphic file (type pdf)
 <use T1_H1_files/figure-latex/unnamed-chunk-24-1.pdf>
-Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-24-1.pdf  used on input line 740.
+Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-24-1.pdf  used on input line 741.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [10] [11 <./T1_H1_files/figure-latex/unnamed-chunk-24-1.pdf>]
-<T1_H1_files/figure-latex/unnamed-chunk-27-1.pdf, id=139, 469.755pt x 325.215pt>
+<T1_H1_files/figure-latex/unnamed-chunk-27-1.pdf, id=164, 469.755pt x 325.215pt>
 File: T1_H1_files/figure-latex/unnamed-chunk-27-1.pdf Graphic file (type pdf)
 <use T1_H1_files/figure-latex/unnamed-chunk-27-1.pdf>
-Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-27-1.pdf  used on input line 799.
+Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-27-1.pdf  used on input line 800.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[12 <./T1_H1_files/figure-latex/unnamed-chunk-27-1.pdf>]
-<T1_H1_files/figure-latex/unnamed-chunk-29-1.pdf, id=152, 469.755pt x 325.215pt>
+<T1_H1_files/figure-latex/unnamed-chunk-29-1.pdf, id=165, 469.755pt x 325.215pt>
 File: T1_H1_files/figure-latex/unnamed-chunk-29-1.pdf Graphic file (type pdf)
 <use T1_H1_files/figure-latex/unnamed-chunk-29-1.pdf>
-Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-29-1.pdf  used on input line 831.
+Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-29-1.pdf  used on input line 832.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[13 <./T1_H1_files/figure-latex/unnamed-chunk-29-1.pdf>] (./T1_H1.aux
+[12] [13 <./T1_H1_files/figure-latex/unnamed-chunk-27-1.pdf>] [14 <./T1_H1_files/figure-latex/unnamed-chunk-29-1.pdf>]
+<T1_H1_files/figure-latex/unnamed-chunk-32-1.pdf, id=193, 469.755pt x 325.215pt>
+File: T1_H1_files/figure-latex/unnamed-chunk-32-1.pdf Graphic file (type pdf)
+<use T1_H1_files/figure-latex/unnamed-chunk-32-1.pdf>
+Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-32-1.pdf  used on input line 895.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<T1_H1_files/figure-latex/unnamed-chunk-34-1.pdf, id=194, 469.755pt x 325.215pt>
+File: T1_H1_files/figure-latex/unnamed-chunk-34-1.pdf Graphic file (type pdf)
+<use T1_H1_files/figure-latex/unnamed-chunk-34-1.pdf>
+Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-34-1.pdf  used on input line 929.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[15] [16 <./T1_H1_files/figure-latex/unnamed-chunk-32-1.pdf>] [17 <./T1_H1_files/figure-latex/unnamed-chunk-34-1.pdf>]
+<T1_H1_files/figure-latex/unnamed-chunk-36-1.pdf, id=216, 469.755pt x 325.215pt>
+File: T1_H1_files/figure-latex/unnamed-chunk-36-1.pdf Graphic file (type pdf)
+<use T1_H1_files/figure-latex/unnamed-chunk-36-1.pdf>
+Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-36-1.pdf  used on input line 963.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[18 <./T1_H1_files/figure-latex/unnamed-chunk-36-1.pdf>]
+<T1_H1_files/figure-latex/unnamed-chunk-38-1.pdf, id=227, 469.755pt x 325.215pt>
+File: T1_H1_files/figure-latex/unnamed-chunk-38-1.pdf Graphic file (type pdf)
+<use T1_H1_files/figure-latex/unnamed-chunk-38-1.pdf>
+Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-38-1.pdf  used on input line 993.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[19 <./T1_H1_files/figure-latex/unnamed-chunk-38-1.pdf>]
+<T1_H1_files/figure-latex/unnamed-chunk-41-1.pdf, id=240, 469.755pt x 325.215pt>
+File: T1_H1_files/figure-latex/unnamed-chunk-41-1.pdf Graphic file (type pdf)
+<use T1_H1_files/figure-latex/unnamed-chunk-41-1.pdf>
+Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-41-1.pdf  used on input line 1056.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<T1_H1_files/figure-latex/unnamed-chunk-43-1.pdf, id=241, 469.755pt x 325.215pt>
+File: T1_H1_files/figure-latex/unnamed-chunk-43-1.pdf Graphic file (type pdf)
+<use T1_H1_files/figure-latex/unnamed-chunk-43-1.pdf>
+Package pdftex.def Info: T1_H1_files/figure-latex/unnamed-chunk-43-1.pdf  used on input line 1090.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[20] [21 <./T1_H1_files/figure-latex/unnamed-chunk-41-1.pdf>] [22 <./T1_H1_files/figure-latex/unnamed-chunk-43-1.pdf>] [23] [24] [25] (./T1_H1.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
 Package rerunfilecheck Info: File `T1_H1.out' has not changed.
-(rerunfilecheck)             Checksum: C83FCBE4B95A4BDC4211A779AE14DF59;4341.
+(rerunfilecheck)             Checksum: B606CD731301738C8048F2CEA9B7BB7D;5966.
  ) 
 Here is how much of TeX's memory you used:
- 12569 strings out of 480539
- 187553 string characters out of 5901723
- 519999 words of memory out of 5000000
- 29956 multiletter control sequences out of 15000+600000
- 453934 words of font info for 69 fonts, out of 8000000 for 9000
+ 12669 strings out of 480539
+ 191204 string characters out of 5901723
+ 522964 words of memory out of 5000000
+ 30021 multiletter control sequences out of 15000+600000
+ 456915 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,6n,66p,1561b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/Users/delValle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on T1_H1.pdf (13 pages, 426003 bytes).
+{/Users/delValle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></Users/delValle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
+Output written on T1_H1.pdf (25 pages, 515572 bytes).
 PDF statistics:
- 214 PDF objects out of 1000 (max. 8388607)
- 168 compressed objects within 2 object streams
- 38 named destinations out of 1000 (max. 500000)
- 98 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 340 PDF objects out of 1000 (max. 8388607)
+ 267 compressed objects within 3 object streams
+ 66 named destinations out of 1000 (max. 500000)
+ 168 words of extra memory for PDF output out of 10000 (max. 10000000)
 
